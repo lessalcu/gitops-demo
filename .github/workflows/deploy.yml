@@ -25,7 +25,7 @@ jobs:
 
     - name: Log in to Argo CD
       run: |
-        argocd login localhost:8080 --username admin --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
+        argocd login ${{ secrets.ARGOCD_SERVER }} --username admin --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
         argocd account generate-token --auth-token ${{ secrets.ARGOCD_AUTH_TOKEN }} --name demo-token
 
     - name: Build Docker image
